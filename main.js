@@ -1,5 +1,5 @@
-require(["esri/config","esri/views/MapView","esri/Map"], 
-            (esriConfig,Mapview,Map) => {
+require(["esri/config","esri/views/MapView","esri/Map", "esri/layers/FeatureLayer"], 
+            (esriConfig,MapView,Map,FeatureLayer) => {
 
                 esriConfig.portalUrl = "https://beta-inc.maps.arcgis.com";
 
@@ -120,6 +120,8 @@ require(["esri/config","esri/views/MapView","esri/Map"],
                     }
                   });
                  
+            RepairCategory.when(()=>{
+            view.goTo(RepairCategory.fullExtent)});
             
             
 
