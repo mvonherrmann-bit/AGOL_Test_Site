@@ -123,6 +123,25 @@ require(["esri/config","esri/views/MapView","esri/Map", "esri/layers/FeatureLaye
             RepairCategory.when(()=>{
             view.goTo(RepairCategory.fullExtent)});
             
+             view.on("immediate-click", (event) => {
+            view.hitTest(event).then((response) => {
+            const candidate = response.results.find((result) => {
+              return (
+                result.graphic &&
+                result.graphic.layer &&
+                result.graphic.layer == RepairCategory
+              );
+            });
+    
+
+          });
+
+
+
+      });
+            
+            
+            
             
 
 
