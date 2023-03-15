@@ -130,6 +130,7 @@ require(["esri/config","esri/views/MapView","esri/Map","esri/widgets/Feature",
                     layer: RepairCategory,
                     multiSortEnabled: true,
                     editingEnabled: true,
+                    visible: false,
                     
                     tableTemplate: {
                         columnTemplates: [
