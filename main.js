@@ -8,39 +8,8 @@ require(["esri/config","esri/views/MapView","esri/Map","esri/widgets/Feature",
                 const map = new Map({
                   basemap:"arcgis-streets"
                 });
-
-                const RepairCategory = new FeatureLayer({
-                    portalItem: {
-                      id: "168ebb3f209c480493a4bb48065914b6"
-                    },
-                    layerId: 1,
-                    popupTemplate: template
-                    
-                  });
-                  map.add(RepairCategory);
-
-                  RepairCategory.when(()=>{
-                    view.goTo(RepairCategory.fullExtent)});
-
-                const view = new MapView({
-                    map: map,
-                    container: "Map_Container",
-                    zoom:9,
-                    center: [42.727,-70.773],
-                    popup: {
-                        autoOpenEnabled: false
-                    }
-                  });
-
-                  const searchWidget = new Search({
-                    view: view
-                  });
-
-                  view.ui.add(searchWidget, {
-                    position: "top-right"
-                  });
-
-                  const template = {
+            
+            const template = {
                     title: "Street Name: {StreetName}",
                     content: [
                       {
@@ -131,6 +100,39 @@ require(["esri/config","esri/views/MapView","esri/Map","esri/widgets/Feature",
                       }
                     ]
                   }
+
+                const RepairCategory = new FeatureLayer({
+                    portalItem: {
+                      id: "168ebb3f209c480493a4bb48065914b6"
+                    },
+                    layerId: 1,
+                    popupTemplate: template
+                    
+                  });
+                  map.add(RepairCategory);
+
+                  RepairCategory.when(()=>{
+                    view.goTo(RepairCategory.fullExtent)});
+
+                const view = new MapView({
+                    map: map,
+                    container: "Map_Container",
+                    zoom:9,
+                    center: [42.727,-70.773],
+                    popup: {
+                        autoOpenEnabled: false
+                    }
+                  });
+
+                  const searchWidget = new Search({
+                    view: view
+                  });
+
+                  view.ui.add(searchWidget, {
+                    position: "top-right"
+                  });
+
+               
                   const featureTable = new FeatureTable({
                     view:view,
                     layer: RepairCategory,
