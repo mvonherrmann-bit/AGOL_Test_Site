@@ -6,7 +6,7 @@ require(["esri/config","esri/views/MapView","esri/Map","esri/widgets/Feature",
 
     
                 const map = new Map({
-                  basemap:"hybrid"
+                  basemap:"dark-gray-vector"
                 });
             
             const template = {
